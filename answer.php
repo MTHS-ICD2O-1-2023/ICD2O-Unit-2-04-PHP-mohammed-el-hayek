@@ -27,27 +27,25 @@
         <div class="right-image">
           <img src="./images/rectangle.png" alt="laptop image" width="250" />
         </div>
-        <br />
-        <div class="page-content">Enter the length and width in cm.</div>
         <div class="page-content-php">
-          <form action="answer.php" method="POST">
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="length-of-rectangle">
-              <label class="mdl-textfield__label" for="length-of-rectangle">Length of retangle (cm)</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="width-of-rectangle">
-              <label class="mdl-textfield__label" for="width-of-rectangle">Width of rectangle (cm)</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <!-- Accent-colored raised button with ripple -->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-              Calculate
-            </button>
-          </form>
+          <div id="user-info">
+            <?php
+            $lengthOfRectangle = $_POST["length-of-rectangle"];
+            $widthOfRectangle = $_POST["width-of-rectangle"];
+
+            // process
+            $area = $lengthOfRectangle * $widthOfRectangle;
+            $perimeter = 2 * ($lengthOfRectangle + $widthOfRectangle);
+
+            // output
+            echo "If a rectangle has length = " . $lengthOfRectangle . " cm and the width = " . $widthOfRectangle . " cm:";
+            echo "<br />";
+            echo "<br />";
+            echo "The area of the rectangle is " . $area . " cm².";
+            echo "<br />";
+            echo "The perimeter of the rectangle is " . $perimeter . " cm.";
+            ?>
+          </div>
         </div>
       </main>
     </div>
